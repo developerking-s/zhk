@@ -6,30 +6,169 @@
     <title>Construtor de Sites</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #F4F7FC; display: flex; height: 100vh; }
-        .container { display: flex; width: 100%; }
-        .sidebar { width: 260px; background: #1E1E2D; color: white; padding: 20px; height: 100vh; display: flex; flex-direction: column; align-items: center; }
-        .profile-container { position: relative; cursor: pointer; text-align: center; margin-bottom: 20px; }
-        .profile-container img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #fff; }
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #F4F7FC; display: flex; flex-direction: column; height: 100vh; }
+        
+        /* Tela de login */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #2a2a3d;
+        }
+        .login-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-form h2 {
+            text-align: center;
+            color: #333;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background: #0056b3;
+        }
+
+        /* Dashboard */
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        .sidebar { 
+            width: 260px; 
+            background: #1E1E2D; 
+            color: white; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            position: fixed;
+            height: 100%;
+        }
+        .profile-container { 
+            position: relative; 
+            cursor: pointer; 
+            text-align: center; 
+            margin-bottom: 20px; 
+        }
+        .profile-container img { 
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            border: 3px solid #fff; 
+        }
         .profile-container input { display: none; }
         .menu { list-style: none; padding: 0; width: 100%; }
-        .menu li { padding: 15px; text-align: left; cursor: pointer; border-radius: 5px; transition: 0.3s; display: flex; align-items: center; }
+        .menu li { 
+            padding: 15px; 
+            text-align: left; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            transition: 0.3s; 
+            display: flex; 
+            align-items: center; 
+        }
         .menu li i { margin-right: 10px; }
         .menu li:hover { background: #2A2A3D; }
-        .content { flex: 1; padding: 30px; background: white; border-radius: 10px; margin: 20px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); }
-        textarea { width: 100%; height: 300px; border-radius: 5px; padding: 10px; border: 1px solid #ccc; }
-        iframe { width: 100%; height: 300px; border: 1px solid #ddd; background: white; border-radius: 5px; margin-top: 10px; }
-        button { margin-top: 10px; padding: 12px; cursor: pointer; background: #007BFF; color: white; border: none; border-radius: 5px; transition: 0.3s; font-weight: bold; }
-        button:hover { background: #0056b3; }
-        .dashboard-header { display: flex; justify-content: space-between; align-items: center; }
-        .dashboard-header h2 { margin: 0; }
-        .site-id-container { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
-        #siteID { font-weight: bold; cursor: pointer; color: #007BFF; }
-        #siteID:hover { text-decoration: underline; }
+        
+        /* Content */
+        .content { 
+            margin-left: 260px; 
+            padding: 30px; 
+            background: white; 
+            border-radius: 10px; 
+            margin-top: 20px; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            flex: 1;
+        }
+        .dashboard-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .dashboard-header h2 { 
+            margin: 0; 
+            font-size: 24px; 
+            font-weight: 600;
+        }
+        .site-id-container { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            margin-top: 10px; 
+        }
+        #siteID { 
+            font-weight: bold; 
+            cursor: pointer; 
+            color: #007BFF; 
+        }
+        #siteID:hover { 
+            text-decoration: underline; 
+        }
+        textarea { 
+            width: 100%; 
+            height: 300px; 
+            border-radius: 5px; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+        }
+        iframe { 
+            width: 100%; 
+            height: 300px; 
+            border: 1px solid #ddd; 
+            background: white; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+        }
+        button { 
+            margin-top: 10px; 
+            padding: 12px; 
+            cursor: pointer; 
+            background: #007BFF; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            transition: 0.3s; 
+            font-weight: bold; 
+        }
+        button:hover { 
+            background: #0056b3; 
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Tela de Login -->
+    <div id="login-screen" class="login-container">
+        <div class="login-form">
+            <h2>Entrar</h2>
+            <input type="text" id="username" placeholder="Usuário" />
+            <input type="password" id="password" placeholder="Senha" />
+            <button onclick="login()">Entrar</button>
+        </div>
+    </div>
+
+    <!-- Tela da Dashboard -->
+    <div id="dashboard-screen" class="container" style="display:none;">
         <div class="sidebar">
             <div class="profile-container" onclick="document.getElementById('fileInput').click()">
                 <img id="profile-pic" src="https://imgur.com/q52cLwE.png" alt="Foto de Perfil">
@@ -69,7 +208,21 @@
             <iframe id="preview"></iframe>
         </div>
     </div>
+
     <script>
+        // Simples sistema de login
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'admin' && password === '12345') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('dashboard-screen').style.display = 'flex';
+                document.getElementById('username-display').innerText = username;
+            } else {
+                alert('Usuário ou senha inválidos');
+            }
+        }
+
         function logout() {
             alert("Você saiu do sistema.");
             location.reload();
